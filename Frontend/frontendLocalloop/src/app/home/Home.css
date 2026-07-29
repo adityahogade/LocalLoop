@@ -1,0 +1,488 @@
+/* ===============================
+ HERO SECTION
+================================ */
+
+.hero-section{
+    padding:90px 0;
+    background:linear-gradient(to right,#f8fbff,#eef8ff);
+    overflow:hidden;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:#d9efff;
+    color:#1565C0;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.hero-title{
+    font-size:58px;
+    font-weight:800;
+    line-height:1.2;
+    color:#222;
+}
+
+.hero-title span{
+    color:#1565C0;
+}
+
+.hero-description{
+    margin-top:25px;
+    font-size:18px;
+    line-height:1.8;
+    color:#666;
+}
+
+.hero-search{
+    margin-top:35px;
+}
+
+.hero-search .form-control{
+    height:58px;
+    border:none;
+}
+
+.hero-search .input-group{
+    background:white;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.hero-search .input-group-text{
+    background:white;
+    border:none;
+    padding-left:22px;
+}
+
+.search-btn{
+    background:#1565C0;
+    color:white;
+    padding:0 30px;
+    border:none;
+}
+
+.search-btn:hover{
+    background:#0d47a1;
+    color:white;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+}
+
+.btn-primary-custom{
+    background:#1565C0;
+    color:white;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+.btn-primary-custom:hover{
+    background:#0d47a1;
+    color:white;
+}
+
+.btn-outline-custom{
+    border:2px solid #1565C0;
+    color:#1565C0;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+.btn-outline-custom:hover{
+    background:#1565C0;
+    color:white;
+}
+
+.hero-stats{
+    margin-top:60px;
+    display:flex;
+    gap:60px;
+}
+
+.hero-stats h3{
+    color:#1565C0;
+    font-weight:700;
+}
+
+.hero-stats p{
+    margin-top:5px;
+    color:#666;
+}
+
+.hero-image{
+    position:relative;
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:520px;
+}
+
+.floating-card{
+    position:absolute;
+    background:white;
+    padding:12px 22px;
+    border-radius:15px;
+    font-weight:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    animation:float 3s infinite ease-in-out;
+}
+
+.milk{
+    top:10%;
+    left:-20px;
+}
+
+.tiffin{
+    top:55%;
+    right:-20px;
+}
+
+.service{
+    bottom:20px;
+    left:20%;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:991px){
+
+.hero-section{
+text-align:center;
+padding:60px 0;
+}
+
+.hero-title{
+font-size:42px;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.hero-stats{
+justify-content:center;
+margin-top:40px;
+}
+
+.hero-image{
+margin-top:60px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero-title{
+font-size:34px;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.hero-stats{
+gap:30px;
+}
+
+.floating-card{
+display:none;
+}
+
+}
+
+/* ==========================================
+   SERVICE CATEGORIES
+========================================== */
+
+.categories-section {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+/* Section Heading */
+
+.section-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(21, 101, 192, 0.1);
+    color: #1565C0;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    max-width: 650px;
+    margin: auto;
+    color: #6c757d;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   CATEGORY CARD
+========================================== */
+
+.category-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid #ececec;
+    transition: all .35s ease;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 0;
+    background: linear-gradient(135deg,#1565C0,#26A69A);
+    left: -15%;
+    top: 0;
+    transition: .45s;
+    z-index: 0;
+}
+
+.category-card:hover::before {
+    height: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
+}
+
+.category-card>* {
+    position: relative;
+    z-index: 2;
+}
+
+.category-card h5 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    transition: .3s;
+}
+
+.category-card p {
+    color: #6c757d;
+    font-size: 15px;
+    line-height: 1.7;
+    transition: .3s;
+}
+
+.category-card:hover h5,
+.category-card:hover p {
+    color: #ffffff;
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.category-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    transition: .35s;
+}
+
+.category-card:hover .category-icon {
+    background: #ffffff;
+    transform: rotate(10deg) scale(1.08);
+}
+
+/* ==========================================
+   ICON COLORS
+========================================== */
+
+.milk-bg {
+    background: #E3F2FD;
+}
+
+.tiffin-bg {
+    background: #FFF3E0;
+}
+
+.grocery-bg {
+    background: #E8F5E9;
+}
+
+.delivery-bg {
+    background: #F3E5F5;
+}
+
+.electrician-bg {
+    background: #FFF8E1;
+}
+
+.plumber-bg {
+    background: #E0F7FA;
+}
+
+.cleaning-bg {
+    background: #FCE4EC;
+}
+
+.subscription-bg {
+    background: #EDE7F6;
+}
+
+/* ==========================================
+   HOVER ICON COLORS
+========================================== */
+
+.category-card:hover .milk-bg {
+    color: #1976D2;
+}
+
+.category-card:hover .tiffin-bg {
+    color: #FB8C00;
+}
+
+.category-card:hover .grocery-bg {
+    color: #2E7D32;
+}
+
+.category-card:hover .delivery-bg {
+    color: #8E24AA;
+}
+
+.category-card:hover .electrician-bg {
+    color: #F9A825;
+}
+
+.category-card:hover .plumber-bg {
+    color: #0097A7;
+}
+
+.category-card:hover .cleaning-bg {
+    color: #D81B60;
+}
+
+.category-card:hover .subscription-bg {
+    color: #5E35B1;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+.categories-section{
+    padding:70px 0;
+}
+
+.section-title{
+    font-size:34px;
+}
+
+.category-card{
+    padding:30px 20px;
+}
+
+}
+
+@media (max-width:768px){
+
+.section-title{
+    font-size:30px;
+}
+
+.section-subtitle{
+    font-size:15px;
+}
+
+.category-icon{
+    width:80px;
+    height:80px;
+    font-size:34px;
+}
+
+.category-card h5{
+    font-size:18px;
+}
+
+}
+
+@media (max-width:576px){
+
+.categories-section{
+    padding:50px 0;
+}
+
+.section-title{
+    font-size:26px;
+}
+
+.category-card{
+    padding:25px 15px;
+}
+
+.category-icon{
+    width:70px;
+    height:70px;
+    font-size:30px;
+}
+
+.category-card h5{
+    font-size:17px;
+}
+
+.category-card p{
+    font-size:13px;
+}
+
+}
+
+.trust-bg{
+    background: #E8F5E9;
+}
+
+.category-card:hover .trust-bg{
+    color: #2E7D32;
+}
