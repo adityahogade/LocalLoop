@@ -1,32 +1,61 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SignupImage from "../../assets/signupimg.jpg";
-import "./Signup.css";
+import SignupImage from "../../assets/images/signupimg.jpg";
+import "../signup/signup.css";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+    role: "",
+    password: "",
+    confirmPassword: "",
+    terms: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    console.log("Signup Data:", formData);
+
+    // Call your backend API here
+  };
+
   return (
     <section className="signup-page">
       <div className="container">
-
         <div className="row signup-card shadow-lg">
 
-          {/* ================= Left Section ================= */}
+          {/* Left Section */}
 
           <div className="col-lg-6 signup-left d-none d-lg-flex">
-
             <div className="signup-left-content">
 
               <div className="brand-logo">
-
                 <div className="logo-circle">
                   <i className="bi bi-shop"></i>
                 </div>
 
                 <h4>ServiceHub</h4>
-
               </div>
 
               <h1>
@@ -36,17 +65,12 @@ function Signup() {
               </h1>
 
               <p className="welcome-text">
-
                 Join India's trusted platform for daily essentials.
-
-                Subscribe to fresh milk, homemade tiffins, groceries,
-
-                and local home services from verified providers.
-
+                Subscribe to fresh milk, homemade tiffins,
+                groceries and local home services from verified providers.
               </p>
 
               <div className="feature-list">
-
                 <div className="feature-item">
                   <i className="bi bi-check-circle-fill"></i>
                   Fresh Milk Subscription
@@ -66,7 +90,6 @@ function Signup() {
                   <i className="bi bi-check-circle-fill"></i>
                   Monthly Subscription Plans
                 </div>
-
               </div>
 
               <img
@@ -76,16 +99,15 @@ function Signup() {
               />
 
               <div className="service-icons">
-
                 <div>
                   <i className="bi bi-cup-hot-fill"></i>
                   <span>Milk</span>
                 </div>
 
-                <div>
-                  <i className="bi bi-basket-fill"></i>
-                  <span>Groceries</span>
-                </div>
+               <div>
+  <i className="bi bi-box2-heart-fill"></i>
+  <span>Tiffin</span>
+</div>
 
                 <div>
                   <i className="bi bi-box-seam-fill"></i>
@@ -96,17 +118,14 @@ function Signup() {
                   <i className="bi bi-house-heart-fill"></i>
                   <span>Home</span>
                 </div>
-
               </div>
 
             </div>
-
           </div>
 
-          {/* ================= Right Section ================= */}
+          {/* Right Section */}
 
           <div className="col-lg-6 signup-right">
-
             <div className="signup-form">
 
               <h2>Create Account</h2>
@@ -115,12 +134,11 @@ function Signup() {
                 Create your ServiceHub account
               </p>
 
-              <form>
+              <form onSubmit={handleSubmit}>
 
                 <div className="row">
 
                   <div className="col-md-6 mb-3">
-
                     <label className="form-label">
                       First Name
                     </label>
@@ -129,12 +147,14 @@ function Signup() {
                       type="text"
                       className="form-control"
                       placeholder="First Name"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
                     />
-
                   </div>
 
                   <div className="col-md-6 mb-3">
-
                     <label className="form-label">
                       Last Name
                     </label>
@@ -143,8 +163,11 @@ function Signup() {
                       type="text"
                       className="form-control"
                       placeholder="Last Name"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
                     />
-
                   </div>
 
                 </div>
@@ -159,6 +182,10 @@ function Signup() {
                     type="email"
                     className="form-control"
                     placeholder="name@example.com"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                   />
 
                 </div>
@@ -173,7 +200,46 @@ function Signup() {
                     type="tel"
                     className="form-control"
                     placeholder="+91 9876543210"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    required
                   />
+
+                </div>
+
+                {/* Role Dropdown */}
+
+                <div className="mb-3">
+
+                  <label className="form-label">
+                    Select Role
+                  </label>
+
+                  <select
+                    className="form-select"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">
+                      Choose your role
+                    </option>
+
+                    <option value="CUSTOMER">
+                      👤 Customer
+                    </option>
+
+                    <option value="SERVICE_PROVIDER">
+                      🛠 Service Provider
+                    </option>
+
+                    <option value="ADMIN">
+                      🛡 Administrator
+                    </option>
+
+                  </select>
 
                 </div>
 
@@ -187,11 +253,17 @@ function Signup() {
                     type={showPassword ? "text" : "password"}
                     className="form-control"
                     placeholder="Enter Password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
                   />
 
                   <i
                     className={`bi ${
-                      showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
+                      showPassword
+                        ? "bi-eye-slash-fill"
+                        : "bi-eye-fill"
                     } password-icon`}
                     onClick={() =>
                       setShowPassword(!showPassword)
@@ -214,6 +286,10 @@ function Signup() {
                     }
                     className="form-control"
                     placeholder="Confirm Password"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    required
                   />
 
                   <i
@@ -237,6 +313,10 @@ function Signup() {
                     className="form-check-input"
                     type="checkbox"
                     id="terms"
+                    name="terms"
+                    checked={formData.terms}
+                    onChange={handleChange}
+                    required
                   />
 
                   <label
@@ -260,31 +340,19 @@ function Signup() {
 
               </form>
 
-              {/* Divider */}
-
               <div className="divider">
                 <span>OR</span>
               </div>
 
-            
-
-
               <p className="login-text">
-
                 Already have an account?
-
-                <Link to="/login">
-                  Login
-                </Link>
-
+                <Link to="/login"> Login</Link>
               </p>
 
             </div>
-
           </div>
 
         </div>
-
       </div>
     </section>
   );

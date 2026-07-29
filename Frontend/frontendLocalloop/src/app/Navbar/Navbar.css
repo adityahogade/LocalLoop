@@ -1,0 +1,144 @@
+/* ================================
+   NAVBAR
+================================ */
+
+.custom-navbar{
+    background:#ffffff;
+    padding:15px 0;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.3s;
+    z-index:999;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+}
+
+.brand-name{
+    margin-left:10px;
+    font-size:28px;
+    font-weight:700;
+    color:#1565C0;
+}
+
+/* ================================
+   NAV LINKS
+================================ */
+
+.navbar-nav .nav-link{
+    color:#333;
+    font-weight:500;
+    font-size:16px;
+    margin:0 10px;
+    position:relative;
+    transition:.3s;
+}
+
+.navbar-nav .nav-link:hover{
+    color:#1565C0;
+}
+
+.navbar-nav .nav-link.active{
+    color:#1565C0;
+}
+
+.navbar-nav .nav-link::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:3px;
+    background:#1565C0;
+    bottom:-8px;
+    left:0;
+    transition:.3s;
+    border-radius:50px;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after{
+    width:100%;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn-login{
+    border:2px solid #1565C0;
+    color:#1565C0;
+    padding:10px 24px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-login:hover{
+    background:#1565C0;
+    color:#fff;
+}
+
+.btn-register{
+    background:#1565C0;
+    color:#fff;
+    padding:10px 24px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-register:hover{
+    background:#0d47a1;
+    color:#fff;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+.navbar-toggler{
+    border:none;
+    box-shadow:none !important;
+    font-size:30px;
+}
+
+.navbar-toggler i{
+    color:#1565C0;
+}
+
+@media(max-width:991px){
+
+.navbar-nav{
+    text-align:center;
+    padding:20px 0;
+}
+
+.navbar-nav .nav-link{
+    margin:10px 0;
+}
+
+.d-flex.gap-3{
+    justify-content:center;
+    margin-top:15px;
+}
+
+}
+
+@media(max-width:576px){
+
+.brand-name{
+    font-size:22px;
+}
+
+.logo{
+    width:42px;
+    height:42px;
+}
+
+.btn-login,
+.btn-register{
+    width:140px;
+}
+
+}
